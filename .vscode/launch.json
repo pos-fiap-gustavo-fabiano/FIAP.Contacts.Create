@@ -1,0 +1,21 @@
+{
+    "configurations": [
+      {
+        "type": "coreclr",
+        "request": "launch",
+        "name": "Launch FIAP.PhaseOne.Api",
+        "program": "${workspaceFolder}/src/FIAP.PhaseOne.Api/bin/Debug/net8.0/FIAP.PhaseOne.Api.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/src/FIAP.PhaseOne.Api",
+        "stopAtEntry": false,
+        "preLaunchTask": "build"
+      }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "programPath",
+        "description": "Path to the DLL to debug"
+      }
+    ]
+  }

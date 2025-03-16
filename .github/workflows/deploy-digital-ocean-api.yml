@@ -1,0 +1,53 @@
+name: Deploy API to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install doctl
+      run: |
+        curl -sL https://github.com/digitalocean/doctl/releases/download/v1.99.0/doctl-1.99.0-linux-amd64.tar.gz | tar -xzv
+        sudo mv doctl /usr/local/bin
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x 
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run unit tests
+      run: dotnet test ./tests/FIAP.PhaseOne.Tests/FIAP.PhaseOne.UnitTest.csproj --no-build --configuration Release 
+
+    - name: Run integration tests
+      run: dotnet test ./tests/FIAP.PhaseOne.IntegratedTests/FIAP.PhaseOne.IntegrationTest.csproj --no-build --configuration Release
+
+    - name: Login to DigitalOcean Container Registry
+      run: echo "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}" | docker login -u doctl --password-stdin registry.digitalocean.com
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        push: true
+        tags: registry.digitalocean.com/pos-fiap-phase2/pos-fiap-phase2:latest
+
+    - name: Login to DigitalOcean
+      run: doctl auth init -t ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+    - name: Deploy to DigitalOcean App Platform
+      run: |
+        doctl apps deploy 985e105f-0eb1-42c4-bf3b-08ccb7b16726 
+

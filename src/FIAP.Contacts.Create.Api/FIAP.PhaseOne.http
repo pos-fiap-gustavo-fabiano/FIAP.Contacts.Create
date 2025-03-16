@@ -1,0 +1,6 @@
+@FIAP.Contacts.Create_HostAddress = http://localhost:5026
+
+GET {{FIAP.Contacts.Create_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
