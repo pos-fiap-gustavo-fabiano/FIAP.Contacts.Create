@@ -25,7 +25,7 @@ namespace FIAP.Contacts.Create.Tests.Application.Handlers.UpdateContactHandler
             var request = new UpdateContactRequest
             {
                 Id = id,
-                Contact = new PhaseOne.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
+                Contact = new FIAP.Contacts.Create.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
                     _faker.Name.FullName(),
                     NewPhone(),
                     _faker.Internet.Email(),
@@ -58,7 +58,7 @@ namespace FIAP.Contacts.Create.Tests.Application.Handlers.UpdateContactHandler
             var request = new UpdateContactRequest
             {
                 Id = id,
-                Contact = new PhaseOne.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
+                Contact = new FIAP.Contacts.Create.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
                     _faker.Name.FullName(),
                     NewPhone(),
                     _faker.Internet.Email(),
@@ -80,7 +80,7 @@ namespace FIAP.Contacts.Create.Tests.Application.Handlers.UpdateContactHandler
             var request = new UpdateContactRequest
             {
                 Id = Guid.Empty,
-                Contact = new PhaseOne.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
+                Contact = new FIAP.Contacts.Create.Application.Handlers.Commands.UpdateContact.Dto.ContactForUpdateDto(
                     _faker.Name.FullName(),
                     NewPhone(),
                     _faker.Internet.Email(),

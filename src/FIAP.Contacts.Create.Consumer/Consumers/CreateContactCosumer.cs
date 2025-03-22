@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Diagnostics;
+using AutoMapper;
 using FIAP.Contacts.Create.Application.Handlers.Commands.AddContact;
 using FIAP.Contacts.Create.Consumer.Dtos;
 using FIAP.Contacts.Create.Consumer.Shared;
@@ -23,7 +25,6 @@ public class CreateContactConsumer : IConsumer<ContactDto>
         var request = _mapper.Map<AddContactRequest>(context.Message);
 
         var response = await _mediator.Send(request, context.CancellationToken);
-
         if (response.IsError)
             throw new RetryException(string.Join(',', response.Errors.Select(x => x.Description)));
     }

@@ -15,7 +15,7 @@ public class AddressTest : DomainTest
         var zipCode = _faker.Address.ZipCode("########");
         var complement = _faker.Address.SecondaryAddress();
 
-        var address = new PhaseOne.Domain.ContactAggregate.Address(
+        var address = new FIAP.Contacts.Create.Domain.ContactAggregate.Address(
             streetName,
             number,
             city,
