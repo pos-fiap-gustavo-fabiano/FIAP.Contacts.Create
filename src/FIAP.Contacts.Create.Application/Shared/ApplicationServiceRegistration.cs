@@ -11,7 +11,20 @@ namespace FIAP.Contacts.Create.Application.Shared
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
 
-            services.AddMediatR((x) => x.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR((x) => 
+            x.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
+            
+            );
+
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+
+                // Adicionar o behavior de tracing como primeiro na pipeline
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(TracingBehavior<,>));
+
+                // Outros behaviors existentes
+            });
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 

@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using FIAP.Contacts.Create.Api.Dto;
-using FIAP.Contacts.Create.Application.Handlers.Commands.AddContact;
-using FIAP.Contacts.Create.Domain.ContactAggregate;
+using FIAP.Contacts.Create.Application.Dto;
 using FIAP.Contacts.Create.IntegratedTests;
 using FIAP.Contacts.Create.Tests.Application;
 using FIAP.Contacts.Create.Tests.Domain.Mock;
-using Google.Protobuf.WellKnownTypes;
 
 namespace FIAP.Contacts.Create.Tests.Presentation
 {

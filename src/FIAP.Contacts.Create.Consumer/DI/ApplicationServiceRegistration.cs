@@ -6,7 +6,6 @@ using Serilog.Extensions.Logging;
 using System.Diagnostics.Metrics;
 using System.Diagnostics;
 using FIAP.Contacts.Create.Consumer.Mapping;
-using MassTransit;
 
 namespace FIAP.Contacts.Create.Consumer.DI;
 
@@ -15,14 +14,14 @@ public static class ApplicationServiceRegistration
     public static IServiceCollection AddConsumers(this IServiceCollection services)
     {
 
-        var loggerConfig = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .Enrich.WithProperty("ApplicationName", "FIAP.Contacts.Create.Api")
-            .WriteTo.Console()
-            .CreateLogger();
+        //var loggerConfig = new LoggerConfiguration()
+        //    .Enrich.FromLogContext()
+        //    .Enrich.WithProperty("ApplicationName", "FIAP.Contacts.Create.Api")
+        //    .WriteTo.Console()
+        //    .CreateLogger();
 
-        services.AddSingleton<ILoggerFactory>(new SerilogLoggerFactory(loggerConfig));
-        services.AddLogging();
+        //services.AddSingleton<ILoggerFactory>(new SerilogLoggerFactory(loggerConfig));
+        //services.AddLogging();
 
         services.AddAutoMapper(typeof(MappingProfile));
 
@@ -45,7 +44,6 @@ public static class ApplicationServiceRegistration
             x.AddMeter("Microsoft.AspNetCore.Diagnostics");
             x.AddMeter("Custom-Meter");
             x.AddConsoleExporter();
-            x.AddPrometheusExporter();
         });
 
         return services;

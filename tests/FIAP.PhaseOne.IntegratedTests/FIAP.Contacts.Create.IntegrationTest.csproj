@@ -25,7 +25,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\FIAP.Contacts.Create.Application\FIAP.Contacts.Create.Application.csproj" />
 		<ProjectReference Include="..\..\src\FIAP.Contacts.Create.Domain\FIAP.Contacts.Create.Domain.csproj" />
-		<ProjectReference Include="..\FIAP.Contacts.Create.Tests\FIAP.Contacts.Create.UnitTest.csproj" />
+		<ProjectReference Include="..\..\src\FIAP.Contacts.Create.Infra\FIAP.Contacts.Create.Infra.csproj" />
+		<ProjectReference Include="..\FIAP.PhaseOne.Tests\FIAP.Contacts.Create.UnitTest.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Diagnostics;
+using AutoMapper;
 using FIAP.Contacts.Create.Domain.ContactAggregate;
 
 namespace FIAP.Contacts.Create.Application.Handlers.Commands.AddContact;
@@ -17,7 +18,6 @@ public class AddContactHandler(
             return Error.Failure(description: "não foi possível criar contato");
 
         await contactRepository.Add(contact, ct);
-
         return new AddContactResponse() { Id = contact.Id };
     }
 }
