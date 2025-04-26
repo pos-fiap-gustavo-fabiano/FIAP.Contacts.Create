@@ -1,11 +1,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-COPY src/FIAP.PhaseOne.Api/*.csproj ./
+COPY src/FIAP.Contacts.Create.Consumer/*.csproj ./
 RUN dotnet restore
 
 COPY . ./
-WORKDIR /app/src/FIAP.PhaseOne.Api
+WORKDIR /app/src/FIAP.Contacts.Create.Consumer
+
 RUN dotnet publish -c Release -o /out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
@@ -16,4 +17,4 @@ COPY --from=build /out .
 EXPOSE 80
 EXPOSE 443
 
-ENTRYPOINT ["dotnet", "FIAP.PhaseOne.Api.dll"]
+ENTRYPOINT ["dotnet", "FIAP.Contacts.Create.Consumer.dll"]

@@ -20,22 +20,23 @@
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.7" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.0" />
-	<PackageReference Include="Serilog" Version="4.2.0" />
-	<PackageReference Include="Serilog.Extensions.Logging" Version="9.0.0" />
-	<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-	<PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
-	  <PackageReference Include="OpenTelemetry" Version="1.11.2" />
-	  <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.11.2" />
-	  <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.11.2" />
-	  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.2" />
-	  <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.1" />
-	  <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.1" />
-	  <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.12" />
-	  <PackageReference Include="RabbitMQ.Client.OpenTelemetry" Version="1.0.0-rc.1" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+    <PackageReference Include="OpenTelemetry" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.2" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore"
+      Version="1.0.0-beta.12" />
+    <PackageReference Include="RabbitMQ.Client.OpenTelemetry" Version="1.0.0-rc.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FIAP.Contacts.Create.Application\FIAP.Contacts.Create.Application.csproj" />
+    <ProjectReference
+      Include="..\FIAP.Contacts.Create.Application\FIAP.Contacts.Create.Application.csproj" />
     <ProjectReference Include="..\FIAP.Contacts.Create.Infra\FIAP.Contacts.Create.Infra.csproj" />
   </ItemGroup>
 
