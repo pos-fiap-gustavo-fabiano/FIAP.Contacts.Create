@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: contact-create-config
+data:
+  ASPNETCORE_ENVIRONMENT: "Development"
+  RabbitMq__Host: "amqps://admin:admin@rabbitmq:5672/"
+  RabbitMq__Queue: "contact.create"
+  
