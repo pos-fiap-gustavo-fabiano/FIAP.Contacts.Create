@@ -72,7 +72,7 @@ var host = Host.CreateDefaultBuilder(args)
                    .AddEntityFrameworkCoreInstrumentation(x => x.SetDbStatementForText = true) // Add if using EF Core
                    .AddOtlpExporter(options =>
                    {
-                       options.Endpoint = new Uri("http://134.122.121.176:4317");
+                       options.Endpoint = new Uri("http://161.35.12.86:4317");
                        options.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.Grpc;
                    }));
 
@@ -87,7 +87,7 @@ var host = Host.CreateDefaultBuilder(args)
 
                 options.AddOtlpExporter(exporterOptions =>
                 {
-                    exporterOptions.Endpoint = new Uri("http://134.122.121.176:4317");
+                    exporterOptions.Endpoint = new Uri("http://161.35.12.86:4317");
                     exporterOptions.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.Grpc;
                 });
             });
